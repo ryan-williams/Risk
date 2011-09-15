@@ -24,9 +24,14 @@ object Risk {
 	}
 
 	def Usage = {
-		println("Usage:")
-		println("$ ./risk <attacking_force> <defending_force>")
-		println("")
+		println("""
+		Usage:
+		# To simulate a battle to the death between forces of two given sizes:
+		$ ./risk <attacking_force> <defending_force>
+
+		# To see "steady-state" single-roll outcome probabilities:
+		$ ./risk -s		
+		""")
 	}
 
 	def main(args: Array[String]): Unit = {
