@@ -22,7 +22,26 @@ object Risk {
 		}		
 	}
 
+	def Usage = {
+		println("Usage:")
+		println("$ ./risk <attacking_force> <defending_force>")
+		println("")
+	}
+
 	def main(args: Array[String]): Unit = {
+		if (args.length < 2) {
+			Usage
+			return
+		}
+		try {
+			args(0).toInt
+			args(1).toInt
+		} catch {
+			case e: Exception => {
+				Usage
+				return
+			}
+		}
 		val (numAttackerArmies, numDefenderArmies) = (args(0).toInt, args(1).toInt)
 		val outcomes = getBattleProbabilityOutcomes(numAttackerArmies, numDefenderArmies).toList.sortWith(_._1>_._1)
 		val (expectedAttackLoss, expectedDefenseLoss, probabilityOfAttackerVictory) =

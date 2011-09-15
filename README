@@ -1,0 +1,60 @@
+README
+
+Risk Odds Calculator
+by Ryan Williams (ryan.blake.williams@gmail.com)
+
+Given the an attacking force of size <A> and a defending force of size <D>, this utility computes a variety of probabilities related to the scenario where, in a game of Risk, an attacking force of size <A> attacks a defending force of size <D>, each side always rolls the maximum possible number of dice, and the attacker fights all the way to the last man.
+
+Usage:
+$ ./risk <attacking_force> <defending_force>
+
+Example:
+
+# Sample outcome of a rather large battle
+$ ./risk 20 10
+
+When 20 armies attack 10:
+
+	Probability of winning:
+
+		Attacker: 0.965
+		Defender: 0.035
+
+	Expected losses:
+
+		Attacker: 8.267
+		Defender: 9.900
+
+	Probabilities of various outcomes:
+
+		Attacker wins by  20: 0.007 | xxxx
+		Attacker wins by  19: 0.021 | xxxxxxxxxxxxx
+		Attacker wins by  18: 0.039 | xxxxxxxxxxxxxxxxxxxxxxxx
+		Attacker wins by  17: 0.059 | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+		Attacker wins by  16: 0.077 | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+		Attacker wins by  15: 0.087 | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+		Attacker wins by  14: 0.096 | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+		Attacker wins by  13: 0.092 | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+		Attacker wins by  12: 0.092 | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+		Attacker wins by  11: 0.079 | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+		Attacker wins by  10: 0.074 | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+		Attacker wins by   9: 0.059 | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+		Attacker wins by   8: 0.052 | xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+		Attacker wins by   7: 0.039 | xxxxxxxxxxxxxxxxxxxxxxxx
+		Attacker wins by   6: 0.033 | xxxxxxxxxxxxxxxxxxxx
+		Attacker wins by   5: 0.024 | xxxxxxxxxxxxxx
+		Attacker wins by   4: 0.020 | xxxxxxxxxxxx
+		Attacker wins by   3: 0.010 | xxxxxx
+		Attacker wins by   2: 0.005 | xx
+		----------------------------------------------------------------------------------------------------
+		Defender wins by   1: 0.007 | xxxx
+		Defender wins by   2: 0.011 | xxxxxx
+		Defender wins by   3: 0.008 | xxxx
+		Defender wins by   4: 0.005 | xx
+		Defender wins by   5: 0.003 | x
+		Defender wins by   6: 0.001 | 
+		Defender wins by   7: 0.001 | 
+		Defender wins by   8: 0.000 | 
+		Defender wins by   9: 0.000 | 
+		Defender wins by  10: 0.000 | 
+

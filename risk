@@ -1,0 +1,3 @@
+#!/bin/sh
+
+make 1> /dev/null && scala -classpath class/ Risk $1 $2
