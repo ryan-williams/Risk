@@ -94,7 +94,9 @@ object Risk {
 				}
 			}
 		)
-		mergeMaps[Int, Double](allProbs, (a,b)=>a+b)
+		val ret = mergeMaps[Int, Double](allProbs, (a,b)=>a+b)
+		cachedProbabilities += ((numAttackerArmies, numDefenderArmies) -> ret)
+		ret
 	}
 	
 	def mergeMaps[A,B](ms: Iterable[Map[A,B]], f: (B,B)=>B): Map[A,B] = {
