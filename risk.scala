@@ -16,9 +16,10 @@ object Risk {
 	}
 
 	def printSingleRollOutcomeProbabilities() = {
+		println("")
 		for (outcome <- singleRollOutcomeProbabilities) {
-			println("%d attacker die vs. %d defender die:".format(outcome._1._1, outcome._1._2))
-			println(("" /: outcome._2._2) { (s, kv) => s + "\t%s: %d / %d = %1.3f\n".format(kv._1.toString, kv._2, outcome._2._1, kv._2 * 1.0 / outcome._2._1) })
+			println("\t%d attacker die vs. %d defender die:".format(outcome._1._1, outcome._1._2))
+			println(("" /: outcome._2._2) { (s, kv) => s + "\t\tAttacker loses %d, defender loses %d: %d / %d = %1.3f\n".format(kv._1._2, kv._1._1, kv._2, outcome._2._1, kv._2 * 1.0 / outcome._2._1) })
 		}		
 	}
 
@@ -29,6 +30,10 @@ object Risk {
 	}
 
 	def main(args: Array[String]): Unit = {
+		if (args.length == 1 && args(0) == "-s") {
+			printSingleRollOutcomeProbabilities
+			return
+		}
 		if (args.length < 2) {
 			Usage
 			return

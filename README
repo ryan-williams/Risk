@@ -5,10 +5,45 @@ by Ryan Williams (ryan.blake.williams@gmail.com)
 
 Given the an attacking force of size <A> and a defending force of size <D>, this utility computes a variety of probabilities related to the scenario where, in a game of Risk, an attacking force of size <A> attacks a defending force of size <D>, each side always rolls the maximum possible number of dice, and the attacker fights all the way to the last man.
 
+Note that it is often disadvantageous to fight to the last man. The "single-roll" odds (see the -s flag below) show how an attacker is likely to fare on just one roll of, say, 3 dice vs. a defender's 2 (answer: attacker expects to lose 2387/2592 (~= .921) armies, defender expects to lose 2797/2592 (~= 1.079) armies, meaning in the limit an attacker and a defender are tied when the attacker has 2387/2797 (~= .853) times as many armies as the defender.
+
 Usage:
+# To simulate a battle to the death between forces of two given sizes:
 $ ./risk <attacking_force> <defending_force>
 
-Example:
+# To see "steady-state" single-roll outcome probabilities:
+$ ./risk -s
+
+Examples:
+
+# Probable single-roll outcomes:
+$ ./risk -s
+
+	1 attacker die vs. 1 defender die:
+		Attacker loses 1, defender loses 0: 21 / 36 = 0.583
+		Attacker loses 0, defender loses 1: 15 / 36 = 0.417
+
+	1 attacker die vs. 2 defender die:
+		Attacker loses 1, defender loses 0: 161 / 216 = 0.745
+		Attacker loses 0, defender loses 1: 55 / 216 = 0.255
+
+	2 attacker die vs. 1 defender die:
+		Attacker loses 1, defender loses 0: 91 / 216 = 0.421
+		Attacker loses 0, defender loses 1: 125 / 216 = 0.579
+
+	2 attacker die vs. 2 defender die:
+		Attacker loses 2, defender loses 0: 581 / 1296 = 0.448
+		Attacker loses 1, defender loses 1: 420 / 1296 = 0.324
+		Attacker loses 0, defender loses 2: 295 / 1296 = 0.228
+
+	3 attacker die vs. 2 defender die:
+		Attacker loses 2, defender loses 0: 2275 / 7776 = 0.293
+		Attacker loses 1, defender loses 1: 2611 / 7776 = 0.336
+		Attacker loses 0, defender loses 2: 2890 / 7776 = 0.372
+
+	3 attacker die vs. 1 defender die:
+		Attacker loses 1, defender loses 0: 441 / 1296 = 0.340
+		Attacker loses 0, defender loses 1: 855 / 1296 = 0.660
 
 # Sample outcome of a rather large battle
 $ ./risk 20 10
